@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Non-Hazardous vs. Hazardous Waste: A Guide for Augusta Homeowners</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-light: #dbeafe;
+            --nonhazard-color: #16a34a;
+            --hazard-color: #dc2626;
+            --paint-color: #f97316;
+            --battery-color: #8b5cf6;
+            --chemical-color: #eab308;
+            --medical-color: #6b7280;
+            --augusta-blue: #0f766e;
+            --light: #ffffff;
+            --dark: #1e293b;
+            --gray: #64748b;
+            --gray-light: #f8fafc;
+            --border-radius: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: var(--dark);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1e40af 0%, var(--primary) 100%);
+            color: white;
+            padding: 60px 40px 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 3rem;
+            opacity: 0.1;
+        }
+
+        h1 {
+            font-size: 2.3rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 25px;
+            font-weight: 300;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+            border-bottom: 4px solid var(--primary);
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        /* Philosophy Banner */
+        .philosophy-banner {
+            background: #eff6ff;
+            border-left: 6px solid var(--primary);
+            padding: 30px;
+            border-radius: 16px;
+            margin: 30px 0;
+        }
+
+        /* Comparison Grid */
+        .comparison-section {
+            padding: 40px;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .comparison-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+            border-left: 6px solid;
+            transition: transform 0.3s ease;
+        }
+
+        .comparison-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .nonhazard-card { border-left-color: var(--nonhazard-color); }
+        .hazard-card { border-left-color: var(--hazard-color); }
+
+        .comparison-icon {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+
+        .nonhazard-card .comparison-icon { color: var(--nonhazard-color); }
+        .hazard-card .comparison-icon { color: var(--hazard-color); }
+
+        .comparison-title {
+            font-size: 1.3rem;
+            color: var(--dark);
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin: 2px;
+        }
+
+        .badge-non { background: #dcfce7; color: var(--nonhazard-color); }
+        .badge-hazard { background: #fee2e2; color: var(--hazard-color); }
+
+        /* Hazard Categories */
+        .hazard-section {
+            padding: 40px;
+            background: #f8fafc;
+            border-top: 1px solid var(--gray-light);
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .hazard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .hazard-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+            border-left: 6px solid;
+        }
+
+        .paint-card { border-left-color: var(--paint-color); }
+        .battery-card { border-left-color: var(--battery-color); }
+        .chemical-card { border-left-color: var(--chemical-color); }
+        .medical-card { border-left-color: var(--medical-color); }
+
+        .hazard-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .paint-card .hazard-icon { color: var(--paint-color); }
+        .battery-card .hazard-icon { color: var(--battery-color); }
+        .chemical-card .hazard-icon { color: var(--chemical-color); }
+        .medical-card .hazard-icon { color: var(--medical-color); }
+
+        .hazard-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+
+        .disposal-note {
+            background: var(--primary-light);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        /* Augusta Facilities */
+        .augusta-section {
+            padding: 40px;
+        }
+
+        .augusta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .augusta-card {
+            background: white;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--augusta-blue);
+        }
+
+        .augusta-name {
+            font-weight: 700;
+            color: var(--augusta-blue);
+            margin-bottom: 10px;
+        }
+
+        .phone-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: var(--primary-light);
+            color: var(--primary);
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 40px;
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            text-align: center;
+        }
+
+        .resource-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .resource-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 14px 28px;
+            background: white;
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid var(--gray-light);
+        }
+
+        .resource-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+            color: #1e40af;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background: #1e40af;
+            color: white;
+        }
+
+        /* Minimal Animation */
+        @keyframes gentlePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        .pulse-element {
+            animation: gentlePulse 4s infinite ease-in-out;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--gray);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--gray-light);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .comparison-section, .hazard-section, .augusta-section, .cta-section {
+                padding: 25px;
+            }
+            
+            .comparison-grid, .hazard-grid, .augusta-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .resource-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .resource-btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-icon">
+                <i class="fas fa-triangle-exclamation"></i>
+            </div>
+            <h1>A Guide to Non-Hazardous vs. Hazardous Waste for Augusta Homeowners</h1>
+            <p class="tagline">Paint • Batteries • Chemicals • Medical Waste • Richmond County HHW</p>
+            <div style="background: rgba(255, 255, 255, 0.15); color: white; padding: 10px 20px; border-radius: 50px; display: inline-block; margin-top: 10px; font-size: 0.9rem;">
+                <i class="fas fa-flask"></i> The Critical Distinction Every Homeowner Must Know
+            </div>
+        </header>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">100+</div>
+                <p style="color: var(--gray);">Items classified as HHW</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">4</div>
+                <p style="color: var(--gray);">HHW collection sites (Richmond Co.)</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">1%</div>
+                <p style="color: var(--gray);">Waste = 33% of toxicity</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">1992</div>
+                <p style="color: var(--gray);">GA Hazardous Waste Management Act</p>
+            </div>
+        </div>
+
+        <div class="philosophy-banner">
+            <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+                <div style="font-size: 2.5rem;">
+                    <i class="fas fa-circle-info" style="color: var(--primary);"></i>
+                </div>
+                <div>
+                    <h3 style="color: var(--dark); margin-bottom: 10px;">🏠 Furniture, old appliances, and construction debris are non-hazardous.</h3>
+                    <p style="color: var(--dark);">Paint cans, batteries, pesticides, and medical waste are <strong>household hazardous waste (HHW)</strong>—and they cannot be mixed with regular trash or general junk removal. Augusta homeowners who understand this distinction protect sanitation workers, avoid environmental contamination, and comply with Richmond County regulations. This guide clearly defines and categorizes common household and construction items, and directs you to proper local disposal facilities.</p>
+                </div>
+            </div>
+        </div>
+
+        <main class="comparison-section">
+            <h2 style="color: var(--dark); margin-bottom: 20px; text-align: center;">Non-Hazardous vs. Hazardous: Quick Reference</h2>
+            
+            <div class="comparison-grid">
+                <div class="comparison-card nonhazard-card">
+                    <div class="comparison-icon">
+                        <i class="fas fa-recycle"></i>
+                    </div>
+                    <div class="comparison-title">Non-Hazardous</div>
+                    <p><strong>Can go in regular trash or junk removal.</strong></p>
+                    <ul style="list-style: none; margin-top: 20px;">
+                        <li style="padding: 8px 0;">✅ Furniture, mattresses</li>
+                        <li style="padding: 8px 0;">✅ Appliances (freon-free)</li>
+                        <li style="padding: 8px 0;">✅ Construction debris</li>
+                        <li style="padding: 8px 0;">✅ Yard waste</li>
+                        <li style="padding: 8px 0;">✅ Electronics? <strong>No—e-waste is hazardous</strong></li>
+                    </ul>
+                    <div style="margin-top: 20px;">
+                        <span class="badge badge-non">♻️ Standard disposal</span>
+                    </div>
+                </div>
+                
+                <div class="comparison-card hazard-card pulse-element">
+                    <div class="comparison-icon">
+                        <i class="fas fa-skull-crossbones"></i>
+                    </div>
+                    <div class="comparison-title">Hazardous (HHW)</div>
+                    <p><strong>NEVER in trash, dumpsters, or drains.</strong></p>
+                    <ul style="list-style: none; margin-top: 20px;">
+                        <li style="padding: 8px 0;">❌ Paint, stains, solvents</li>
+                        <li style="padding: 8px 0;">❌ Batteries (all types)</li>
+                        <li style="padding: 8px 0;">❌ Pesticides, herbicides</li>
+                        <li style="padding: 8px 0;">❌ Medical waste</li>
+                        <li style="padding: 8px 0;">❌ Electronics, CFL bulbs</li>
+                    </ul>
+                    <div style="margin-top: 20px;">
+                        <span class="badge badge-hazard">⚠️ HHW facility only</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <section class="hazard-section">
+            <h2 style="color: var(--dark); margin-bottom: 20px; text-align: center;">Common Hazardous Waste Categories</h2>
+            
+            <div class="hazard-grid">
+                <div class="hazard-card paint-card">
+                    <div class="hazard-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <div class="hazard-title">Paint & Solvents</div>
+                    <ul style="list-style: none;">
+                        <li style="padding: 5px 0;">• Oil-based paints, stains, varnishes</li>
+                        <li style="padding: 5px 0;">• Paint thinners, strippers, removers</li>
+                        <li style="padding: 5px 0;">• Aerosol cans (non-empty)</li>
+                    </ul>
+                    <div class="disposal-note">
+                        <strong>✅ Latex paint:</strong> Dry with kitty litter → trash
+                    </div>
+                </div>
+                
+                <div class="hazard-card battery-card">
+                    <div class="hazard-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="hazard-title">Batteries</div>
+                    <ul style="list-style: none;">
+                        <li style="padding: 5px 0;">• Lithium-ion (laptops, tools, vapes)</li>
+                        <li style="padding: 5px 0;">• Rechargeable (Ni-Cd, Ni-MH)</li>
+                        <li style="padding: 5px 0;">• Button cell (watches, hearing aids)</li>
+                        <li style="padding: 5px 0;">• Lead-acid (vehicles)</li>
+                    </ul>
+                    <div class="disposal-note">
+                        <strong>⚠️ Tape terminals.</strong> Never trash.
+                    </div>
+                </div>
+                
+                <div class="hazard-card chemical-card">
+                    <div class="hazard-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <div class="hazard-title">Chemicals</div>
+                    <ul style="list-style: none;">
+                        <li style="padding: 5px 0;">• Pesticides, herbicides, fertilizers</li>
+                        <li style="padding: 5px 0;">• Pool & spa chemicals</li>
+                        <li style="padding: 5px 0;">• Mercury thermometers/thermostats</li>
+                        <li style="padding: 5px 0;">• Motor oil, antifreeze</li>
+                    </ul>
+                    <div class="disposal-note">
+                        <strong>🧪 Never mix products.</strong>
+                    </div>
+                </div>
+                
+                <div class="hazard-card medical-card">
+                    <div class="hazard-icon">
+                        <i class="fas fa-syringe"></i>
+                    </div>
+                    <div class="hazard-title">Medical Waste</div>
+                    <ul style="list-style: none;">
+                        <li style="padding: 5px 0;">• Sharps (needles, lancets)</li>
+                        <li style="padding: 5px 0;">• Expired medications</li>
+                        <li style="padding: 5px 0;">• Blood-soaked bandages</li>
+                    </ul>
+                    <div class="disposal-note">
+                        <strong>🏥 Sharps:</strong> Approved containers only
+                    </div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 30px; padding: 20px; background: white; border-radius: 12px; border-left: 4px solid var(--hazard-color);">
+                <p><i class="fas fa-exclamation-triangle" style="color: var(--hazard-color); margin-right: 10px;"></i> <strong>E-waste is hazardous.</strong> Computers, monitors, and televisions are banned from Georgia landfills. Must be recycled through certified processors.</p>
+            </div>
+        </section>
+
+        <section class="augusta-section">
+            <h2 style="color: var(--dark); margin-bottom: 20px; text-align: center;">📍 Augusta-Richmond County HHW Disposal</h2>
+            
+            <div class="augusta-grid">
+                <div class="augusta-card">
+                    <div class="augusta-name">♻️ Augusta HHW Collection Center</div>
+                    <p><strong>📍 475 Bill Dr, Augusta, GA 30906</strong></p>
+                    <p><strong>🕒 1st & 3rd Saturday of each month • 9am – 1pm</strong></p>
+                    <p><strong>Accepts:</strong> Paint, batteries, electronics, chemicals, motor oil, tires, CFLs</p>
+                    <p><strong>Free for Richmond County residents.</strong> Proof of residency required (driver's license + tax bill).</p>
+                    <div class="phone-badge">📞 (706) 821-2415</div>
+                </div>
+                
+                <div class="augusta-card">
+                    <div class="augusta-name">♻️ Richmond County Landfill</div>
+                    <p><strong>📍 3665 Deans Bridge Rd, Hephzibah, GA 30815</strong></p>
+                    <p><strong>🕒 Mon-Fri 8am-4pm • Sat 8am-12pm</strong></p>
+                    <p><strong>Accepts:</strong> HHW by appointment only. Call to schedule.</p>
+                    <p><strong>Also:</strong> Scrap metal, appliances, yard waste, C&D debris.</p>
+                    <div class="phone-badge">📞 (706) 592-4342</div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 30px; padding: 20px; background: #fefce8; border-radius: 12px;">
+                <p><i class="fas fa-clock" style="color: #eab308; margin-right: 10px;"></i> <strong>Limited dates:</strong> Augusta's HHW Center is only open six days per month. Plan ahead. Call (706) 821-2415 for current schedule and appointment requirements.</p>
+            </div>
+        </section>
+
+        <section style="padding: 40px; background: white;">
+            <h2 style="color: var(--dark); margin-bottom: 20px; text-align: center;">🔄 Alternative Disposal Options</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px;">
+                <div style="background: #f3f4f6; padding: 25px; border-radius: 12px;">
+                    <h4 style="color: var(--dark); margin-bottom: 15px;">🛍️ Retail Take-Back</h4>
+                    <p><strong>Batteries:</strong> Lowe's, Home Depot, Staples (Call2Recycle)</p>
+                    <p><strong>CFL bulbs:</strong> Ace Hardware, Batteries Plus</p>
+                    <p><strong>Electronics:</strong> Best Buy (3 items/day, TV fee)</p>
+                </div>
+                
+                <div style="background: #f3f4f6; padding: 25px; border-radius: 12px;">
+                    <h4 style="color: var(--dark); margin-bottom: 15px;">🔋 Automotive</h4>
+                    <p><strong>Motor oil & filters:</strong> Advance Auto, AutoZone, O'Reilly (5 gal/day)</p>
+                    <p><strong>Car batteries:</strong> Core deposit refund at purchase</p>
+                    <p><strong>Tires:</strong> Retailer disposal fee ($2-5 each)</p>
+                </div>
+                
+                <div style="background: #f3f4f6; padding: 25px; border-radius: 12px;">
+                    <h4 style="color: var(--dark); margin-bottom: 15px;">💊 Medical Waste</h4>
+                    <p><strong>Sharps:</strong> Augusta Health Department (call 706-667-4265)</p>
+                    <p><strong>Medications:</strong> CVS, Walgreens, Walmart pharmacies (drop boxes)</p>
+                </div>
+            </div>
+        </section>
+
+        <section style="padding: 40px; background: #fefce8;">
+            <h2 style="color: var(--dark); margin-bottom: 20px; text-align: center;">✅ Quick Identification Checklist</h2>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                <div style="background: white; padding: 25px; border-radius: 12px;">
+                    <p style="font-weight: 700; color: var(--nonhazard-color);">🟢 NON-HAZARDOUS</p>
+                    <ul style="list-style: none; padding-left: 0; margin-top: 15px;">
+                        <li style="padding: 8px 0;">✓ Furniture, mattresses</li>
+                        <li style="padding: 8px 0;">✓ Appliances (freon-free)</li>
+                        <li style="padding: 8px 0;">✓ Construction debris</li>
+                        <li style="padding: 8px 0;">✓ Yard waste</li>
+                        <li style="padding: 8px 0;">✓ Dry latex paint</li>
+                    </ul>
+                </div>
+                
+                <div style="background: white; padding: 25px; border-radius: 12px;">
+                    <p style="font-weight: 700; color: var(--hazard-color);">🔴 HAZARDOUS (HHW)</p>
+                    <ul style="list-style: none; padding-left: 0; margin-top: 15px;">
+                        <li style="padding: 8px 0;">✗ Wet paint, stains, solvents</li>
+                        <li style="padding: 8px 0;">✗ Batteries, electronics</li>
+                        <li style="padding: 8px 0;">✗ Pesticides, pool chemicals</li>
+                        <li style="padding: 8px 0;">✗ Motor oil, antifreeze</li>
+                        <li style="padding: 8px 0;">✗ Medical waste, sharps</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section style="padding: 40px; background: #ecfdf5;">
+            <h2 style="color: var(--dark); margin-bottom: 20px; text-align: center;">📋 Georgia Law & Local Compliance</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px;">
+                <div style="background: white; padding: 25px; border-radius: 12px;">
+                    <p style="font-weight: 700; margin-bottom: 10px;">⚖️ Georgia Hazardous Waste Management Act</p>
+                    <p>HHW is exempt from federal regulations, but <strong>banned from municipal solid waste landfills.</strong> Violations can result in fines.</p>
+                </div>
+                
+                <div style="background: white; padding: 25px; border-radius: 12px;">
+                    <p style="font-weight: 700; margin-bottom: 10px;">🏛️ Richmond County Code</p>
+                    <p>Illegal dumping of HHW: <strong>fines up to $1,000 per violation.</strong> Report illegal dumping at (706) 821-2415.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h3 style="color: var(--dark); margin-bottom: 15px;">When You Need Professional Help</h3>
+            <p style="color: var(--gray); margin-bottom: 20px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Standard junk removal services cannot accept hazardous waste. For large quantities of HHW, estate cleanouts with unknown chemicals, or properties with abandoned hazardous materials, you need specialized handling. Professional providers can identify prohibited items and coordinate proper disposal with Richmond County facilities.
+            </p>
+            
+            <div class="resource-links">
+                <a href="https://www.hinkinsdisposalllc.com/" class="resource-btn btn-primary">
+                    <i class="fas fa-truck"></i> junk Removal
+                </a>
+                <a href="https://maps.app.goo.gl/nYcytzqzCqDB6kiLA" class="resource-btn">
+                    <i class="fas fa-map-marker-alt"></i> my map
+                </a>
+            </div>
+            
+            <div style="margin-top: 30px; padding: 20px; background: white; border-radius: 12px; font-size: 0.9rem; color: var(--gray);">
+                <i class="fas fa-lightbulb" style="color: var(--primary); margin-right: 8px;"></i>
+                <strong>Augusta tip:</strong> Hinkins Disposal removes non-hazardous junk—furniture, appliances, debris. They cannot accept paint, chemicals, or medical waste. Call (706) 885-4032 for free estimates on standard junk removal.
+            </div>
+        </section>
+
+        <footer>
+            <p>© 2026 Augusta Hazardous Waste Guide | Richmond County Solid Waste • Georgia EPD | Updated February 2026</p>
+            <p style="margin-top: 10px;">This information is for educational purposes. HHW policies change; verify with Augusta HHW at (706) 821-2415.</p>
+        </footer>
+    </div>
+</body>
+</html>
